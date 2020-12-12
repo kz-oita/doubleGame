@@ -1,0 +1,9 @@
+body{
+  background-color: grey;
+}
+
+.character-image{
+  width : 80px;
+  height : 80px;
+  margin: 4px;
+}
