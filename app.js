@@ -1,9 +1,9 @@
-console.log('hello');
-
-function appendImages($targetCard, imageResourceArray) {
-  imageResourceArray.forEach(element => {
-    $targetCard.append($('<img>',element));
-  });
+function appendImages($targetCard,imageResourceArray){
+    imageResourceArray.forEach(element => {
+        $appendImage = $('<img>',element);
+        $appendImage.addClass('character-image');
+        $targetCard.append($appendImage);        
+    });
 }
 
 let imageResources =[
@@ -26,5 +26,18 @@ let imageResources =[
 
 let $card1 = $('#card1');
 let $card2 = $('#card2');
-appendImages($card1,imageResources);
-appendImages($card2,imageResources);
+const numberOfImagesInCard = 8;
+appendImages($card1,pickUpAndRemoveRandomImages(imageResources));
+appendImages($card2,pickUpAndRemoveRandomImages(imageResources));
+
+
+
+function pickUpAndRemoveRandomImages(targetImageresourceArray){
+  let returnArray = [];
+  for(let i=0 ; i<numberOfImagesInCard -1; i++){
+    let randomIndex = Math.floor(Math.random() * targetImageresourceArray.length);
+    returnArray.push(targetImageresourceArray[randomIndex]);
+    targetImageresourceArray.splice(randomIndex,1);
+  }
+  return returnArray;
+}

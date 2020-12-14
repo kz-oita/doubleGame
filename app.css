@@ -7,3 +7,12 @@ body{
   height : 80px;
   margin: 4px;
 }
+
+.game-card{
+  background-color : white;
+  display: grid;
+  grid-template-columns : repeat(4,auto);
+  grid-template-rows : repeat(2,auto);
+  margin-top: 16px;
+  max-width: 360px;
+}
